@@ -27,3 +27,8 @@
     </div>
 <!-- end Main Content -->
 @endsection
+@section('script')
+    <script>
+        CKEDITOR.replace('body_desc');
+    </script>
+@stop

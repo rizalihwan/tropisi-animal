@@ -23,7 +23,7 @@
                                     <th>{{ $loop->iteration + $newss->firstItem() - 1 . '.'}}</th>
                                     <td><img src="{{ asset('thumbnail/news_image/'.$news->news_thumbnail) }}" alt="" srcset="" width="80px"></td>
                                     <td>{{ $news->news_title }}</td>
-                                    <td>{{ Str::limit($news->news_description, 10, '...') }}</td>
+                                    <td>{!! $news->news_description !!}</td>
                                     <td>
                                         <form action="{{ route('admin.news.delete', $news->slug) }}" method="post">
                                             @csrf
@@ -83,3 +83,8 @@
     </div>
     <!-- end Main Content -->
 @endsection
+@section('script')
+<script>
+    CKEDITOR.replace('news_description');
+</script>
+@stop

@@ -34,3 +34,8 @@
     </div>
 <!-- end Main Content -->
 @endsection
+@section('script')
+<script>
+    CKEDITOR.replace('news_description');
+</script>
+@stop

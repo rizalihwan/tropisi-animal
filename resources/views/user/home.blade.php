@@ -14,9 +14,9 @@ section,footer{
 .slides img{
     filter : brightness(80%)
 }
-.carousel-item img{
-    width : auto;
-    height : 300px;
+.carousel .carousel-item {
+        width: 34%;
+        height : auto;
 }
 </style>
     <div class="slider" id="home">
@@ -93,14 +93,14 @@ section,footer{
             <div class="row">
                 @foreach ($news as $news)
                 <div class="col m4 s12 center">
-                    <div class="card">
+                    <div class="card" style="overflow: hidden; height: 350px;">
                         <div class="card-image">
                             <img src="{{ asset('thumbnail/news_image/'.$news->news_thumbnail) }}" alt="" style="height: 175px; width: 100%; object-fit: cover;" class="responsive-img materialboxed">
                         </div>
-                        <a href="{{ route('news') }}" style="color: #000000;">
+                        <a href="{{ route('news') }}" style="color: black;">
                             <div class="card-content waves-effect waves-dark">
-                                <h6>{!! Str::limit(nl2br($news->news_title), 15, '...') !!}</h6>
-                                <p class="light grey-text darken-2">{!! Str::limit(nl2br($news->news_description), 15, '...') !!}</p>
+                                <h6>{!! nl2br($news->news_title) !!}</h6>
+                                <p class="light grey-text darken-2">{!! nl2br($news->news_description) !!}</p>
                             </div>
                         </a>
                     </div>
@@ -109,31 +109,21 @@ section,footer{
             </div>
         </div>
     </section>
-    <div class="container-fluid">
-            <div class="row">
-                <div class="col m11 offset-m1">
-                    <strong class="green-text">GALERI</strong>
-                    <h3>{!! nl2br($profile->company_galery) !!}</h3>
-                </div>
-                <div class="carousel" style="margin-bottom: -30px;">
-                    <div class="col m10 offset-2">
-                        <a class="carousel-item" href="{{ route('gallery') }}"><img src="{{ asset('asset/ASET/x1/kyaw-tun-_YIX48_4hgs-unsplash.png') }}" style="object-fit: cover;" class="responsive-img"></a>
-                        <a class="carousel-item" href="{{ route('gallery') }}"><img src="{{ asset('asset/ASET/x1/dawn-armfield-84n7c9cLEKM-unsplash.png') }}" style="object-fit: cover;" class="responsive-img"></a>
-                        <a class="carousel-item" href="{{ route('gallery') }}"><img src="{{ asset('asset/ASET/x1/oscar-merchant-sCt1TLNIxFw-unsplash.png') }}" style="object-fit: cover;"></a>
-                        <a class="carousel-item" href="{{ route('gallery') }}"><img src="{{ asset('asset/ASET/x1/david-clode-0lwa8Dprrzs-unsplash.png') }}" style="object-fit: cover;" class="responsive-img"></a>
-                        <a class="carousel-item" href="{{ route('gallery') }}"><img src="{{ asset('asset/ASET/x1/alessandro-desantis-9_9hzZVjV8s-unsplash.png') }}" style="object-fit: cover;" class="responsive-img"></a>
-                        <a class="carousel-item" href="{{ route('gallery') }}"><img src="{{ asset('asset/ASET/x1/david-clode-AtCChdVhAmA-unsplash.png') }}" style="object-fit: cover;" class="responsive-img"></a>
-                        <a class="carousel-item" href="{{ route('gallery') }}"><img src="{{ asset('asset/ASET/x1/hans-veth-o33FMDaXJS8-unsplash.png') }}" style="object-fit: cover;" class="responsive-img"></a>
-                        <a class="carousel-item" href="{{ route('gallery') }}"><img src="{{ asset('asset/ASET/x1/joshua-j-cotten-VCzNXhMoyBw-unsplash.png') }}" style="object-fit: cover;" class="responsive-img"></a>
-                        <a class="carousel-item" href="{{ route('gallery') }}"><img src="{{ asset('asset/ASET/x1/mathew-schwartz-OjQgsR1oyEw-unsplash.png') }}" style="object-fit: cover;" class="responsive-img"></a>
-                        <a class="carousel-item" href="{{ route('gallery') }}"><img src="{{ asset('asset/ASET/x1/rick-l-037fCBgZB10-unsplash.png') }}" style="object-fit: cover;" class="responsive-img"></a>
-                        <a class="carousel-item" href="{{ route('gallery') }}"><img src="{{ asset('asset/ASET/x1/kyaw-tun-_YIX48_4hgs-unsplash.png') }}" style="object-fit: cover;" class="responsive-img"></a>
-                        <a class="carousel-item" href="{{ route('gallery') }}"><img src="{{ asset('asset/ASET/x1/dawn-armfield-84n7c9cLEKM-unsplash.png') }}" style="object-fit: cover;" class="responsive-img"></a>
-                        <a class="carousel-item" href="{{ route('gallery') }}"><img src="{{ asset('asset/ASET/x1/oscar-merchant-sCt1TLNIxFw-unsplash.png') }}" style="object-fit: cover;" class="responsive-img"></a>
-                    </div>
-                </div>
+    <div class="container">
+        <div class="row">
+            <div class="col m12">
+                <strong class="green-text">GALERI</strong>
+                <h3>{!! nl2br($profile->company_galery) !!}</h3>
             </div>
         </div>
-    <!-- Contact -->
-
+    </div>
+    <div class="container-fluid">
+        <div class="carousel">
+            <div class="col m12" style="width: 100%; height: 100%">
+                @foreach($galerys as $gallery)
+                    <a class="carousel-item" href="{{ route('gallery') }}"><img src="{{ asset('thumbnail/gallery_image/'.$gallery->galery_thumbnail) }}"  class="responsive-img"></a>
+                @endforeach
+            </div>
+        </div>
+    </div>
 @endsection

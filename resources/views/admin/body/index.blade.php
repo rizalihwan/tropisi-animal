@@ -24,7 +24,7 @@
                                 <tr>
                                     <th>{{ $loop->iteration + $bodys->firstItem() - 1 . '.'}}</th>
                                     <td>{{ $body->body_title }}</td>
-                                    <td>{{ Str::limit($body->body_desc, 15, '...') }}</td>
+                                    <td>{!! $body->body_desc !!}</td>
                                     <td>
                                         <form action="{{ route('admin.body.delete', $body->slug) }}" method="post">
                                             @csrf
@@ -80,3 +80,8 @@
     </div>
     <!-- end Main Content -->
 @endsection
+@section('script')
+    <script>
+        CKEDITOR.replace('body_desc');
+    </script>
+@stop
