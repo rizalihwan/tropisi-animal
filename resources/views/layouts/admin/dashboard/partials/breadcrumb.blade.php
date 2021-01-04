@@ -13,7 +13,7 @@
             {{-- Profile Body --}}
             @if (request()->is('admin/profile/body'))
                 <div class="breadcrumb-item text-primary">Profile Management</div>
-                <div class="breadcrumb-item text-primary">Body Menu</div>
+                <div class="breadcrumb-item text-primary">Content Menu</div>
             @endif
             {{-- News --}}
             @if (request()->is('admin/news/news'))

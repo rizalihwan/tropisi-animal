@@ -9,7 +9,7 @@
             <div class="card card-primary">
               <div class="card-header"><h3 style="color: hsl(233, 81%, 67%);">Login</h3></div>
               <div class="card-body">
-                <form method="POST" action="{{ route('login') }}" class="needs-validation" novalidate="">
+                <form method="POST" action="{{ route('login') }}" autocomplete="off" class="needs-validation" novalidate="">
                     @csrf
                     <div class="form-group">
                         <label for="username">Username</label>
