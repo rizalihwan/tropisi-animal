@@ -29,7 +29,7 @@ class BodyController extends Controller
     public function store()
     {
         $count = Body::count();
-        if($count == 4 && $count >= 4){
+        if($count >= 4){
             session()->flash('warning', 'Content Maximum!');
             return back();
         }else{
