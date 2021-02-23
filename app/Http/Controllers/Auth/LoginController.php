@@ -50,6 +50,7 @@ class LoginController extends Controller
     }
     public function logout()
     {
+        Alert::success('Message Information!', 'Logout Success!');
         $this->guard()->logout();
         return redirect()->route('admin.index');
     }
